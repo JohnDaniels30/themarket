@@ -1,0 +1,98 @@
+/* 
+  #DFD8D2 - light cream
+  #2A2A2A - light black
+*/
+
+body {
+  border: 0;
+  color: #2A2A2A;
+  background-color: #DFD8D2;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 66px;
+  padding-top: 81px;
+  min-height: 100%;
+  font: 20px Montserrat, sans-serif;
+  line-height: 1.8;
+}
+
+body *::selection {
+  background: #e74c3c;
+}
+
+nav {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 0;
+  border: 0;
+  border-radius: 0;
+  font-size: 14px;
+  letter-spacing: 4px;
+}
+
+nav * {
+  letter-spacing: 4px;
+  color: #DFD8D2 !important;
+}
+
+a {
+  color: #2A2A2A;
+  -webkit-transition: color .5s linear;
+  -moz-transition: color .5s linear;
+  -ms-transition: color .5s linear;
+  -o-transition: color .5s linear;
+  transition: color .5s linear;
+}
+
+a:hover {
+  color: #e74c3c !important;
+  text-decoration: none;
+}
+
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 10px 10px;
+}
+
+p {
+  margin: 5px auto;
+}
+
+.row {
+  margin: 0;
+}
+
+.navbar-brand {
+  color: #e74c3c !important;
+}
+
+.input-group {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.input-group span {
+  width: 100px;
+}
+
+.dark {
+  background-color: #2A2A2A;
+  color: #DFD8D2;
+}

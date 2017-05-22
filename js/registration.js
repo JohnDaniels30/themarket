@@ -3,27 +3,25 @@ $(() => {
 	/* Incomplete form validation */
 
     $('#registration').on('submit', () => {
-        let date =      $('#birth input').val();
-        let username =  $('#username input').val();
-        let email =     $('#email input').val();
+        let login =     $('#login input').val();
         let pass1 =     $('#password input').val();
-        let pass2 =     $('#repeat input').val();
+        let pass2 =     $('#confirmation input').val();
+        let birthdate = $('#birthdate input').val();
+        let email =     $('#email input').val();
 
-        if (checkBirth(date) &&
-            checkUsername(username) &&
+        if (checkBirthdate(birthdate) &&
+            checkLogin(login) &&
             checkEmail(email) &&
             checkPassword(pass1, pass2)
         ) {
-            // request to the server
-            location.assign('registration-success.html');
-            // return true;
+            return true;
         }
 
         return false;
 
-        function checkBirth(data) {
+        function checkBirthdate(data) {
             let text = '';
-            let message = $('#birth + div.alert');
+            let message = $('#birthdate + div.alert');
             let date = new Date(data);
 
             if (!data) text += 'date should not be empty; ';
@@ -32,7 +30,7 @@ $(() => {
 
             if (text) {
                 if (!message.length) {
-                    $('#birth').after(createMessage(text));
+                    $('#birthdate').after(createMessage(text));
                 } else {
                     // update text in alert message
                     message.html(text);
@@ -44,14 +42,14 @@ $(() => {
             return true;
         }
 
-        function checkUsername(data) {
-            let message = $('#username + div.alert');
+        function checkLogin(data) {
+            let message = $('#login + div.alert');
             let regexp = /^[A-Za-z]([A-Za-z0-9-_]{2,5})$/;
 
             if (!regexp.test(data)) {
                 if (!message.length) {
-                    let text = 'username must start with a letter and must be between 3 and 6 characters long (inclusive)';
-                    $('#username').after(createMessage(text));
+                    let text = 'login must start with a letter and must be between 3 and 6 characters long (inclusive)';
+                    $('#login').after(createMessage(text));
                 }
                 return false;
             }
@@ -77,12 +75,12 @@ $(() => {
         }
 
         function checkPassword(pass1, pass2) {
-            let message = $('#repeat + div.alert');
+            let message = $('#confirmation + div.alert');
 
-            if ((pass1 != '') && (pass2 != '') && (pass1 !== pass2)) {
+            if ((pass1 == '') || (pass2 == '') || (pass1 !== pass2)) {
                 if (!message.length) {
                     let text = 'passwords must match and not be empty';
-                    $('#repeat').after(createMessage(text));
+                    $('#confirmation').after(createMessage(text));
                 }
                 return false;
             }

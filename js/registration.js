@@ -44,7 +44,7 @@ $(() => {
 
         function checkLogin(data) {
             let message = $('#login + div.alert');
-            let regexp = /^[A-Za-z]([A-Za-z0-9-_]{2,5})$/;
+            let regexp = /^[A-Za-z]([A-Za-z0-9-_]{3,11})$/;
 
             if (!regexp.test(data)) {
                 if (!message.length) {

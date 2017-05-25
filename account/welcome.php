@@ -1,15 +1,17 @@
+<?php $root = realpath($_SERVER["DOCUMENT_ROOT"]); ?>
+
 <!DOCTYPE html>
 
 <html>
 
 <head>
-  <?php include "../parts/head.html"; ?>
+  <?php require "$root/parts/head.html"; ?>
   <title>themarket | welcome</title>
 </head>
 
 <body>
   <a name="home"></a>
-  <?php include "../parts/navbar.php"; ?>
+  <?php require "$root/parts/navbar.php"; ?>
 
   <div class="container">
     <div class="row">
@@ -28,10 +30,10 @@
     </div><!-- /row -->
   </div><!-- /container -->
 
-  <?php include "../parts/footer.html"; ?>
+  <?php require "$root/parts/footer.html"; ?>
 
-  <?php include "../parts/scripts.html"; ?>
-  <script src="../js/user-info.js"></script>
+  <?php require "$root/parts/scripts.html"; ?>
+  <script src="$root/js/user-info.js"></script>
 </body>
 
 </html>

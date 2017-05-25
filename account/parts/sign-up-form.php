@@ -17,7 +17,7 @@
 <form id="registration" action="/account/handling/sign-up.php" method="post">
   <div class="input-group">
     <span class="input-group-addon">name</span>
-    <input name="name" class="form-control" required
+    <input name="name" class="form-control" required autofocus 
     pattern="[A-Za-zА-Яа-яЁё\s]{4,50}">
   </div>
 

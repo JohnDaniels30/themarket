@@ -1,5 +1,6 @@
 <?php 
     $root = realpath($_SERVER["DOCUMENT_ROOT"]);
+    require "$root/brands/handling/main.php";
     require "$root/products/handling/main.php"; 
 ?>
 
@@ -9,7 +10,7 @@
 
 <head>
   <?php require "$root/parts/head.html"; ?>
-  <title>themarket</title>
+  <title>themarket | add product</title>
 </head>
 
 <body>
@@ -18,17 +19,22 @@
 
   <div class="container">
     <div class="row">
-      <?php
-          $products = getLatestProducts();
-          $sizes = getSizes($products);
-          closeConnection();
-          displayProductsList($products, $sizes);
-      ?>
+      <div class="col-lg-4 col-lg-offset-4
+                  col-md-6 col-md-offset-3
+                  col-sm-12 col-xs-12">
+        <h1 class="text-center">add new product</h1>
+        <?php 
+            $brands = getBrands();
+            closeConnection();
+
+            require "$root/products/parts/add-form.php"; 
+        ?>
+      </div><!-- /col -->
     </div><!-- /row -->
   </div><!-- /container -->
 
   <?php require "$root/parts/footer.html"; ?>
-
+  
   <?php require "$root/parts/scripts.html"; ?>
 </body>
 

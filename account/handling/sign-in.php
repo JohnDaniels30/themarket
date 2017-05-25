@@ -6,10 +6,12 @@
  * Do not use this code in a production setting
  */
 
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+require_once "$root/parts/db-connection.php";
+
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	// fetching input data
 	$login = $_POST["login"];
 	$password = $_POST["password"];
 
@@ -18,27 +20,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     function checkUser()
     {
-		global $login, $password, $errorMessage;
-
-    	$servername = "localhost";
-		$username = "root";
-		$passwordDB = "root";
-		$database = "themarket";
-
-		// creating connection
-		$conn = new mysqli($servername, $username, $passwordDB, $database);
-
-		// checking connection
-		if ($conn->connect_error) {
-		    $errorMessage .= "<li><b>DATABASE CONNECTION FAILED</b></li>";
-			return false;
-		}
+		global $conn, $login, $password, $errorMessage;
 
 		$sql = "SELECT *
 				FROM users 
 				WHERE login='$login' AND password='$password';";
-
 		$result = $conn->query($sql);
+
 		$conn->close();
 
 		if ($result->num_rows == 0) {

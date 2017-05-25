@@ -1,6 +1,6 @@
 <?php 
     $root = realpath($_SERVER["DOCUMENT_ROOT"]);
-    require "$root/products/handling/main.php"; 
+    require "$root/brands/handling/main.php"; 
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +9,7 @@
 
 <head>
   <?php require "$root/parts/head.html"; ?>
-  <title>themarket</title>
+  <title>themarket | brands</title>
 </head>
 
 <body>
@@ -18,11 +18,12 @@
 
   <div class="container">
     <div class="row">
+      <h1 class="text-center">brands</h1> 
+
       <?php
-          $products = getLatestProducts();
-          $sizes = getSizes($products);
+          $brands = getBrands();
           closeConnection();
-          displayProductsList($products, $sizes);
+          displayBrandsList($brands);
       ?>
     </div><!-- /row -->
   </div><!-- /container -->

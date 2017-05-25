@@ -9,7 +9,7 @@
 
 <head>
   <?php require "$root/parts/head.html"; ?>
-  <title>themarket</title>
+  <title>themarket | products</title>
 </head>
 
 <body>
@@ -19,13 +19,16 @@
   <div class="container">
     <div class="row">
       <?php
-          $products = getLatestProducts();
+          $attribute = key($_GET);
+          $value = $_GET[$attribute];
+
+          $products = getProducts($attribute, $value);
           $sizes = getSizes($products);
           closeConnection();
           displayProductsList($products, $sizes);
       ?>
-    </div><!-- /row -->
-  </div><!-- /container -->
+    </div>
+  </div>
 
   <?php require "$root/parts/footer.html"; ?>
 

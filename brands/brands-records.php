@@ -1,6 +1,6 @@
 <?php 
     $root = realpath($_SERVER["DOCUMENT_ROOT"]);
-    require_once "$root/account/handling/main.php"; 
+    require "$root/brands/handling/main.php"; 
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +9,7 @@
 
 <head>
   <?php require "$root/parts/head.html"; ?>
-  <title>themarket | administration</title>
+  <title>themarket | brands administration</title>
 </head>
 
 <body>
@@ -19,15 +19,16 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <h1 class="text-center">users table</h1>
+        <h1 class="text-center">brands table</h1>
+
+        <p class="text-right">
+          <a class="btn btn-default" href="/brands/add.php">add brand</a>
+        </p> 
 
         <?php
-          $attribute = key($_GET);
-          $value = $_GET[$attribute];
-
-          $users = getUsers($attribute, $value);
-          closeConnection();
-          displayUsersTable($users);
+            $brands = getBrands();
+            closeConnection();
+            displayBrandsTable($brands);
         ?>
       </div><!-- /col -->
     </div><!-- /row -->

@@ -1,6 +1,6 @@
 <?php 
     $root = realpath($_SERVER["DOCUMENT_ROOT"]);
-    require_once "$root/account/handling/main.php"; 
+    require "$root/brands/handling/main.php"; 
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +9,7 @@
 
 <head>
   <?php require "$root/parts/head.html"; ?>
-  <title>themarket | administration</title>
+  <title>themarket | edit brand</title>
 </head>
 
 <body>
@@ -18,16 +18,16 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-xs-12">
-        <h1 class="text-center">users table</h1>
+      <div class="col-lg-4 col-lg-offset-4
+                  col-md-6 col-md-offset-3
+                  col-sm-12 col-xs-12">
+        <h1 class="text-center">edit brand</h1>
 
         <?php
-          $attribute = key($_GET);
-          $value = $_GET[$attribute];
+            $brand = getBrand($_GET["id"]);
+            closeConnection();
 
-          $users = getUsers($attribute, $value);
-          closeConnection();
-          displayUsersTable($users);
+            require "$root/brands/parts/edit-form.php"; 
         ?>
       </div><!-- /col -->
     </div><!-- /row -->

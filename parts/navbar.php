@@ -20,10 +20,10 @@
       </form>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/production/men.php">MEN</a></li>
-        <li><a href="/production/women.php">WOMEN</a></li>
-        <li><a href="/production/kids.php">KIDS</a></li>
-        <li><a href="/production/brands.php">BRANDS</a></li>
+        <li><a href="/products/index.php?gender=men">MEN</a></li>
+        <li><a href="/products/index.php?gender=women">WOMEN</a></li>
+        <li><a href="/products/index.php?age=kid">KIDS</a></li>
+        <li><a href="/brands/index.php">BRANDS</a></li>
         <li>
           <a href="/account/index.php">
           <?php

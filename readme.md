@@ -10,3 +10,4 @@ This course of laboratory works is intended to create a basic web store
 <p>0.2 - Improving JS functionality: form validation &amp; clock widget</p>
 <p>0.3 - BOM: getting information about user agent and displaying it after registration</p>
 <p>0.4 - PHP: registration, authentication, user accounting</p>
+<p>0.5 - PHP: products &amp; brands administration</p>

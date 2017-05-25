@@ -1,5 +1,8 @@
 <?php
 
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+require_once "$root/parts/db-connection.php";
+
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -97,27 +100,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     function saveUser()
     {
-		global $name, $birthdate, $login, $email, 
+		global $conn, $name, $birthdate, $login, $email, 
 	   		   $password, $confirmation, $errorMessage;
-
-    	$servername = "localhost";
-		$username = "root";
-		$passwordDB = "root";
-		$database = "themarket";
-
-		// creating connection
-		$conn = new mysqli($servername, $username, $passwordDB, $database);
-
-		// checking connection
-		if ($conn->connect_error) {
-		    $errorMessage .= "<li><b>DATABASE CONNECTION FAILED</b></li>";
-			return false;
-		}
 
 		$sql = "INSERT INTO users (login, password, email, name, birthdate)
 		VALUES ('$login', '$password', '$email', '$name', '$birthdate');";
-
 		$result = $conn->query($sql);
+
 		$conn->close();
 
 		if (!$result) {

@@ -1,55 +1,19 @@
+<?php
+    $root = realpath($_SERVER["DOCUMENT_ROOT"]);
+    require_once "$root/account/handling/main.php";
+?>
+
 <h1 class="text-center">personal page</h1>
 
 <h3 class="text-center">
-    <?php
-        $login = $_COOKIE['authorized'];
-        echo $login; 
-    ?>
+    <?php echo $_COOKIE['authorized']; ?>
 </h3>
 
 <?php
-    function isAdmin()
-    {
-        $login = $_COOKIE['authorized'];
-
-        $servername = "localhost";
-        $username = "root";
-        $passwordDB = "root";
-        $database = "themarket";
-
-        // creating connection
-        $conn = new mysqli($servername, $username, $passwordDB, $database);
-
-        // checking connection
-        if ($conn->connect_error) {
-            return false;
-        }
-
-        $sql = "SELECT *
-                FROM users 
-                WHERE login='$login' AND status='admin';";
-
-        $result = $conn->query($sql);
-        $conn->close();
-
-        return ($result->num_rows == 0) ? false : true;
-    }
-
-    function displayAdminMenu()
-    {
-        echo '<ul>
-                <li>
-                  <a href="/account/users-records.php">users records</a>
-                </li>
-                <li>
-                  <a href="#">other things</a>
-                </li>
-              </ul>';
-    }
-
-    if (isAdmin()) {
+    if ( isAdmin($_COOKIE['authorized']) ) {
         displayAdminMenu();
     }
+    closeConnection();
 ?>
 
 <p class="text-right">

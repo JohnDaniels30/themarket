@@ -17,7 +17,7 @@
 <form action="/account/handling/sign-in.php" method="post">
   <div class="input-group">
     <span class="input-group-addon">login</span>
-    <input name="login" class="form-control" required>
+    <input name="login" class="form-control" required autofocus>
   </div>
 
   <div class="input-group">

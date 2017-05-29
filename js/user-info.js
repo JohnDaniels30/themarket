@@ -3,19 +3,20 @@ $(() => {
 	/* Output of user agent information */
 
 	(function getUserInfo() {
-		window.name = 'gratz';
+		window.name = 'welcome';
 
-		let info = '<li>' +
-		// window: name & status bar
-		'window name: ' + window.name + '; status bar: ' + window.status + '</li>' +
-		// navigator: processor type & user language
-		'<li>processor: ' + navigator.product + '; language: ' + navigator.language + '</li>' +
+		let info = '' +
+		// window: name
+		'<li><b>window name</b>: ' + window.name + '</li>' +
+		// navigator: user language
+		'<li><b>language</b>: ' + navigator.language + '</li>' +
 		// location: URL & port
-		'<li>URL: ' + location.href + '; port: ' + (location.port || 'default (80)') + '</li>' +
+		'<li><b>URL</b>: ' + location.href + '</li>' +
+		'<li><b>port</b>: ' + (location.port || 'default (80)') + '</li>' +
 		// history: size 
-		'<li>history size: ' + history.length + '</li>' +
+		'<li><b>history size</b>: ' + history.length + '</li>' +
 		// screen: height & width
-		'<li>screen height: ' + screen.availHeight + '; screen width: ' + screen.width + '</li>';
+		'<li><b>screen size</b>: ' + screen.width + ' x ' + + screen.height + '</li>';
 
 		$('#user-info').html(info);
 	})();

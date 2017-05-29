@@ -65,13 +65,13 @@ table {
 }
 
 td, th {
-  border: 1px solid #2A2A2A;
+  border: 1px solid #2A2A2A !important;
   text-align: center;
   padding: 8px;
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #ddd;
 }
 
 a {
@@ -112,4 +112,21 @@ p {
 .dark {
   background-color: #2A2A2A;
   color: #DFD8D2;
+}
+
+.flex-container {
+  display: flex;
+  align-items: stretch;
+}
+
+.purchase {
+  color: #DFD8D2;
+  background: #eb6e60;
+  letter-spacing: 4px;
+}
+
+.purchase:hover {
+  color: #2A2A2A;
+  border: 1px solid #2A2A2A;
+  background-color: #e74c3c;
 }

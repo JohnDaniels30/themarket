@@ -13,9 +13,9 @@ function addProduct($product)
 
     $sql = "INSERT INTO products 
             (name, brand_id, color, price, stock, gender, age, manufacturer)
-            VALUES ('{$product["name"]}',   '{$product["brand_id"]}', 
-                    '{$product["color"]}',  '{$product["price"]}',
-                    '{$product["stock"]}',  '{$product["gender"]}',
+            VALUES ('{$product["name"]}',   {$product["brand_id"]}, 
+                    '{$product["color"]}',  {$product["price"]},
+                    {$product["stock"]},    '{$product["gender"]}',
                     '{$product["age"]}',    '{$product["manufacturer"]}')";
     $conn->query($sql);
 

@@ -15,7 +15,7 @@
 <body>
   <a name="home"></a>
   <?php require "$root/parts/navbar.php"; ?>
-
+  
   <div class="container">
     <div class="row">
       <?php
@@ -24,8 +24,8 @@
           closeConnection();
           displayProductsList($products, $sizes);
       ?>
-    </div><!-- /row -->
-  </div><!-- /container -->
+    </div>
+  </div>
 
   <?php require "$root/parts/footer.html"; ?>
 

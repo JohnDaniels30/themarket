@@ -29,7 +29,7 @@
             $attribute = key($_GET);
             $value = $_GET[$attribute];
 
-            $products = getProducts($attribute, $value);
+            $products = getFilteredProducts($attribute, $value);
             $sizes = getSizes($products);
             closeConnection();
             displayProductsTable($products, $sizes);

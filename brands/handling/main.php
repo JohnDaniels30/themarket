@@ -72,16 +72,17 @@ function displayBrandsTable($brands)
 
     if (!empty($brands)) {
         echo <<<EOT
-            <table>
-              <thead>
-                <tr>
-                  <th>id</th>
-                  <th>name</th>
-                  <th>description</th>
-                  <th colspan="2">operations</th>
-                </tr>
-              </thead>
-              <tbody>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>description</th>
+                    <th colspan="2">operations</th>
+                  </tr>
+                </thead>
+                <tbody>
 EOT;
 
         foreach ($brands as $id => $brand) {
@@ -90,12 +91,20 @@ EOT;
                 <td>$id</td>
                 <td>{$brand["name"]}</td>
                 <td>{$brand["description"]}</td>
-                <td><a href="/brands/edit.php?id=$id">edit</a></td>
-                <td><a href="/brands/delete.php?id=$id">delete</a></td>
+                <td>
+                  <a href="/brands/edit.php?id=$id">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                  </a>
+                </td>
+                <td>
+                  <a href="/brands/delete.php?id=$id">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </a>
+                </td>
               </tr>
 EOT;
         }
-        echo "</tbody></table>";
+        echo "</tbody></table></div>";
     } else {
         echo '<h1 class="text-center">no results</h1>';
     }

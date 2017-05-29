@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * isAdmin($login) ALLOWS HACKERS TO FALSIFY THEIR COOKIES 
+ * AND GET ADMINISTRATOR PRIVILEGES
+ */
+
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 require_once "$root/parts/db-connection.php";
 
@@ -54,20 +59,21 @@ function displayUsersTable($users)
 {
     if (!empty($users)) {
       echo <<<EOT
-          <table>
-            <thead>
-              <tr>
-                <th>id</th>
-                <th>login</th>
-                <th>password</th>
-                <th>status</th>
-                <th>name</th>
-                <th>email</th>
-                <th>birthdate</th>
-                <th colspan="2">operations</th>
-              </tr>
-            </thead>
-            <tbody>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>id</th>
+                  <th>login</th>
+                  <th>password</th>
+                  <th>status</th>
+                  <th>name</th>
+                  <th>email</th>
+                  <th>birthdate</th>
+                  <th colspan="2">operations</th>
+                </tr>
+              </thead>
+              <tbody>
 EOT;
 
       foreach ($users as $id => $user) {
@@ -80,12 +86,36 @@ EOT;
                 <td>{$user["name"]}</td>
                 <td>{$user["email"]}</td>
                 <td>{$user["birthdate"]}</td>
-                <td><a href="/account/edit.php?id=$id">change status</a></td>
-                <td><a href="/account/delete.php?id=$id">delete</a></td>
+EOT;
+
+            if ($user["status"] == "admin") {
+              echo <<<EOT
+                <td>
+                  <a href="/account/edit.php?id=$id" title="set as user">
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                  </a>
+                </td>
+EOT;
+            } else {
+              echo <<<EOT
+                <td>
+                  <a href="/account/edit.php?id=$id" title="set as admin">
+                    <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                  </a>
+                </td>
+EOT;
+            }
+            
+            echo <<<EOT
+                <td>
+                  <a href="/account/delete.php?id=$id">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </a>
+                </td>
               </tr>
 EOT;
       }
-      echo "</tbody></table>";
+      echo "</tbody></table></div>";
     } else {
       echo '<h1 class="text-center">no results</h1>';
     }

@@ -5,9 +5,21 @@
 
 <h1 class="text-center">personal page</h1>
 
-<h3 class="text-center">
+<h2 class="text-center">
     <?php echo $_COOKIE['authorized']; ?>
-</h3>
+</h2>
+
+<ul>
+  <li>
+    <a href="/cart/index.php">cart</a>
+  </li>
+  <li>
+    <a href="#">edit personal data</a>
+  </li>
+  <li>
+    <a href="#">other stuff</a>
+  </li>
+</ul>
 
 <?php
     if ( isAdmin($_COOKIE['authorized']) ) {

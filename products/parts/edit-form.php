@@ -56,7 +56,11 @@ EOT;
     <input name="sizes" class="form-control" required
            placeholder="split sizes via whitespaces"
            pattern="[,0-9\s]{2,50}"
-           value="<?php echo $sizes[$product["id"]]; ?>">
+           value="<?php 
+              foreach ($sizes[$product["id"]] as $size) {
+                echo "$size ";
+            }
+            ?>">
   </div>
 
   <div class="input-group">

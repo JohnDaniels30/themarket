@@ -33,7 +33,7 @@
   <?php require "$root/parts/footer.html"; ?>
 
   <?php require "$root/parts/scripts.html"; ?>
-  <script src="$root/js/user-info.js"></script>
+  <script src="/js/user-info.js"></script>
 </body>
 
 </html>

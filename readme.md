@@ -16,11 +16,12 @@ This course of laboratory works is intended to create a basic web store
 ## Notes
 
 - i'm using a **dumbass authentication system**, so strong and reliable authorization is out of question. literally everyone can falsify their cookies and obtain administrator privileges
+- forgot to add database dump
 - search is not working
 - you cannot add photos of shoes
 - payment functionality is not provided
 - single sizing chart only
-
+- no pagination
 
 ## Database structure
 
